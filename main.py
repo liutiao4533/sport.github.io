@@ -187,7 +187,7 @@ def installAdditional():
     #下载segment插件
     if Segment:
         # 下载segment anything 插件
-        get_ipython().system(f'rm -rf {wb}/extensions/sd-{w}-segment-anything')
+        print("下载segment anything 插件")
         gitDownload(f'https://github.com/continue-revolution/sd-{w}-segment-anything',
                     f'{wb}/extensions/sd-{w}-segment-anything')
         # 下载segment模型
