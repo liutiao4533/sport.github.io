@@ -30,6 +30,7 @@ Version = args.Version
 ControlNet = args.ControlNet
 Drive_Map = args.Drive_Map
 Key_words = args.Key_words
+Segment = args.Segment
 
 ################################################################################################################################################
 
