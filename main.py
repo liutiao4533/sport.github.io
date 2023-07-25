@@ -256,12 +256,20 @@ def initLocal():
     #放大
     get_ipython().system(f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/embed/upscale/resolve/main/4x-UltraSharp.pth -d {wb}/models/ESRGAN -o 4x-UltraSharp.pth')
 
+
     model_dir = os.path.join(wb, "models", "Stable-diffusion")
     if any(f.endswith(('.ckpt', '.safetensors')) for f in os.listdir(model_dir)):
         get_ipython().system(f'sed -i \'s@weight_load_location =.*@weight_load_location = "cuda"@\' {wb}/modules/shared.py')
         get_ipython().system(f'sed -i "s@os.path.splitext(model_file)@os.path.splitext(model_file); map_location=\'cuda\'@" {wb}/modules/sd_models.py')
         get_ipython().system(f'sed -i "s@map_location=\'cpu\'@map_location=\'cuda\'@" {wb}/modules/extras.py')
         get_ipython().system(f"sed -i 's@ui.create_ui().*@ui.create_ui();shared.demo.queue(concurrency_count=999999,status_update_rate=0.1)@' {wb}/webui.py")
+
+    # 下载主模型
+    get_ipython().system(
+        f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/ckpt/chilloutmix/resolve/main/chilloutmix_NiPrunedFp32Fix.safetensors -d {wb}/models/Stable-diffusion -o chilloutmix_NiPrunedFp32Fix.safetensors')
+
+    get_ipython().system(
+        f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/AerinK/NotSoXJB-Mix-1/resolve/main/NSX-1A-purned.safetensors -d {wb}/models/Stable-diffusion -o NSX-1A-purned.safetensors')
 
 
 # 运行
