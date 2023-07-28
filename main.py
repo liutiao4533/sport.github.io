@@ -1,6 +1,9 @@
 import argparse
 import binascii
 
+
+
+
 # 自定义类型转换函数
 def str_to_bool(value):
     if value.lower() in ('yes', 'true', 't', 'y', '1'):
@@ -271,7 +274,8 @@ def initLocal():
     get_ipython().system(
         f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/AerinK/NotSoXJB-Mix-1/resolve/main/NSX-1A-purned.safetensors -d {wb}/models/Stable-diffusion -o NSX-1A-purned.safetensors')
 
-
+    get_ipython().system(
+        f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/OortOnline/darkSushiMixMix_225D/resolve/main/darkSushiMixMix_225D.safetensors -d {wb}/models/Stable-diffusion -o darkSushiMixMix_225D.safetensors')
 # 运行
 def run(script):
     clear_output()
