@@ -225,6 +225,8 @@ def initLocal():
         get_ipython().system(f'git clone -b v2.2 https://github.com/camenduru/{sdw} {wb}')
     elif Version == "V2.3":
         get_ipython().system(f'git clone -b v2.3 https://github.com/camenduru/{sdw} {wb}')
+    elif Version == "V2.4":
+        get_ipython().system(f'git clone -b v2.4 https://github.com/camenduru/{sdw} {wb}')
 
     get_ipython().system(f'git -C {wb}/repositories/stable-diffusion-stability-ai reset --hard')
 
