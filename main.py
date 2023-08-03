@@ -206,11 +206,11 @@ def installAdditional():
     if Couple:
         print("下载安装latent Couple插件")
         # 使用git克隆命令下载插件
-        gitDownload(f'https://github.com/opparco/{wb}-{w}-two-shot',
-                    f'{wb}/extensions/{wb}-{w}-two-shot')
+        gitDownload(f'https://github.com/opparco/{sdw}-{w}-two-shot',
+                    f'{wb}/extensions/{sdw}-{w}-two-shot')
     else:
         # 如果不需要,删除目录
-        get_ipython().system(f'rm -rf {wb}/extensions/{wb}-{w}-two-shot')
+        get_ipython().system(f'rm -rf {wb}/extensions/{sdw}-{w}-two-shot')
         print("不下载该插件")
 
     #安装提示词插件
