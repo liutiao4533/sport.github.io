@@ -23,6 +23,7 @@ parser.add_argument('--Roop', type=str_to_bool)
 parser.add_argument('--Drive_Map', type=str_to_bool)
 parser.add_argument('--Key_words', type=str_to_bool)
 parser.add_argument('--Segment', type=str_to_bool)
+parser.add_argument('--Couple', type=str_to_bool)
 
 # 解析命令行参数
 args = parser.parse_args()
@@ -34,7 +35,7 @@ ControlNet = args.ControlNet
 Drive_Map = args.Drive_Map
 Key_words = args.Key_words
 Segment = args.Segment
-
+Couple = args.Couple
 ################################################################################################################################################
 
 import sys
@@ -199,6 +200,22 @@ def installAdditional():
     else:
         get_ipython().system(f'rm -rf {wb}/extensions/sd-{w}-segment-anything')
         print("segemnt插件不下载")
+
+    # 下载安装latent Couple插件
+    # 判断是否需要下载该插件
+    if Couple:
+        print("下载安装latent Couple插件")
+        # 使用git克隆命令下载插件
+        gitDownload(f'https://github.com/opparco/{wb}-{w}-two-shot',
+                    f'{wb}/extensions/{wb}-{w}-two-shot')
+    else:
+        # 如果不需要,删除目录
+        get_ipython().system(f'rm -rf {wb}/extensions/{wb}-{w}-two-shot')
+        print("不下载该插件")
+
+    #安装提示词插件
+    gitDownload(f'https://github.com/thisjam/sd-{w}-oldsix-prompt', f'{wb}/extensions/sd-{w}-oldsix-prompt')
+
 # 初始化本地环境
 def initLocal():
     #部署 ubuntu3 环境
