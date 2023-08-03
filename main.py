@@ -208,9 +208,12 @@ def installAdditional():
         # 使用git克隆命令下载插件
         gitDownload(f'https://github.com/opparco/{sdw}-two-shot',
                     f'{wb}/extensions/{sdw}-two-shot')
+        gitDownload(f'https://github.com/opparco/{sdw}-composable-lora',
+                    f'{wb}/extensions/{sdw}-composable-lora')
     else:
         # 如果不需要,删除目录
         get_ipython().system(f'rm -rf {wb}/extensions/{sdw}-two-shot')
+        get_ipython().system(f'rm -rf {wb}/extensions/{sdw}-composable-lora')
         print("不下载该插件")
 
     #安装提示词插件
