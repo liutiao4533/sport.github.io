@@ -298,7 +298,7 @@ def initLocal():
     get_ipython().system(
         f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/OortOnline/darkSushiMixMix_225D/resolve/main/darkSushiMixMix_225D.safetensors -d {wb}/models/Stable-diffusion -o darkSushiMixMix_225D.safetensors')
     get_ipython().system(
-        f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/xiaolxl/GuoFengRealMix/blob/main/GuoFengRealMix.safetensors -d {wb}/models/Stable-diffusion -o GuoFengRealMix.safetensors')
+        f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/xiaolxl/GuoFengRealMix/resolve/main/GuoFengRealMix.safetensors -d {wb}/models/Stable-diffusion -o GuoFengRealMix.safetensors')
 
 #lora下载
     get_ipython().system(
