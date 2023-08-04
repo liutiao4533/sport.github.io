@@ -215,10 +215,9 @@ def installAdditional():
         get_ipython().system(f'rm -rf {wb}/extensions/{sdw}-two-shot')
         get_ipython().system(f'rm -rf {wb}/extensions/{sdw}-composable-lora')
         print("不下载该插件")
-
     #安装提示词插件
     gitDownload(f'https://github.com/thisjam/sd-{w}-oldsix-prompt', f'{wb}/extensions/sd-{w}-oldsix-prompt')
-
+    gitDownload(f'https://github.com/AIrjen/OneButtonPrompt', f'{wb}/extensions/OneButtonPrompt')
 # 初始化本地环境
 def initLocal():
     #部署 ubuntu3 环境
@@ -298,6 +297,23 @@ def initLocal():
 
     get_ipython().system(
         f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/OortOnline/darkSushiMixMix_225D/resolve/main/darkSushiMixMix_225D.safetensors -d {wb}/models/Stable-diffusion -o darkSushiMixMix_225D.safetensors')
+    get_ipython().system(
+        f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/xiaolxl/GuoFengRealMix/blob/main/GuoFengRealMix.safetensors -d {wb}/models/Stable-diffusion -o GuoFengRealMix.safetensors')
+
+#lora下载
+    get_ipython().system(
+            f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/129414 -d {wb}/models/Lora -o GirlFriendMix.safetensors')
+    get_ipython().system(
+            f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/116558 -d {wb}/models/Lora -o JK.safetensors')
+    get_ipython().system(
+            f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/23250 -d {wb}/models/Lora -o breastinClass.safetensors')
+    get_ipython().system(
+            f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/16677 -d {wb}/models/Lora -o cuteGirlMix4_v10.safetensors')
+    get_ipython().system(
+            f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/31284 -d {wb}/models/Lora -o KoreanDollLikeness.safetensors')
+    get_ipython().system(
+            f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/10290 -d {wb}/models/Lora -o Doggystyle.safetensors')
+
 # 运行
 def run(script):
     clear_output()
