@@ -196,7 +196,7 @@ def installAdditional():
                     f'{wb}/extensions/sd-{w}-segment-anything')
         # 下载segment模型
         get_ipython().system(
-            f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth -o {wb}/extensions/sd-{w}-segment-anything/models/sam/sam_vit_h_4b8939.pth')
+            f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/ybelkada/segment-anything/resolve/main/checkpoints/sam_vit_h_4b8939.pth -d {wb}/extensions/sd-{w}-segment-anything/models/sam/sam_vit_h_4b8939.pth')
     else:
         get_ipython().system(f'rm -rf {wb}/extensions/sd-{w}-segment-anything')
         print("segemnt插件不下载")
@@ -294,7 +294,6 @@ def initLocal():
 
     get_ipython().system(
         f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/AerinK/NotSoXJB-Mix-1/resolve/main/NSX-1A-purned.safetensors -d {wb}/models/Stable-diffusion -o NSX-1A-purned.safetensors')
-
     get_ipython().system(
         f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/OortOnline/darkSushiMixMix_225D/resolve/main/darkSushiMixMix_225D.safetensors -d {wb}/models/Stable-diffusion -o darkSushiMixMix_225D.safetensors')
     get_ipython().system(
