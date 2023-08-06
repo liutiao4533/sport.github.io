@@ -160,7 +160,11 @@ def installAdditional():
     get_ipython().system(f'rm -rf {wb}/extensions/sd-{w}-controlnet')
     # 模型下载到Colab
     if ControlNet:
+        #openpose模型下载
         gitDownload(f'https://github.com/Mikubill/sd-{w}-controlnet',f'{wb}/extensions/sd-{w}-controlnet')
+        #openpose editor下载
+        gitDownload(f'https://github.com/huchenlei/sd-{w}-openpose-editor', f'{wb}/extensions/sd-{w}-openpose-editor')
+
         get_ipython().system(
             f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15_openpose.pth -d {wb}/extensions/sd-{w}-controlnet/models -o control_v11p_sd15_openpose.pth')
         for v in Cnt_models:
