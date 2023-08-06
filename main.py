@@ -303,8 +303,9 @@ def initLocal():
     get_ipython().system(
         f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/OortOnline/darkSushiMixMix_225D/resolve/main/darkSushiMixMix_225D.safetensors -d {wb}/models/Stable-diffusion -o darkSushiMixMix_225D.safetensors')
     get_ipython().system(
-        f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/xiaolxl/GuoFengRealMix/resolve/main/GuoFengRealMix.safetensors -d {wb}/models/Stable-diffusion -o GuoFengRealMix.safetensors')
-
+        f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/casque/fantexiV09beta_fantexiV09beta/resolve/main/%20fantexiV09beta_fantexiV09beta.safetensors -d {wb}/models/Stable-diffusion -o Fantexi.safetensors')
+    get_ipython().system(
+        f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/hanafuusen2001/Hassaku/resolve/main/hassakuHentaiModel_v12.safetensors -d {wb}/models/Stable-diffusion -o hassaku.safetensors')
 #lora下载
     get_ipython().system(
             f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/129414 -d {wb}/models/Lora -o GirlFriendMix.safetensors')
@@ -318,6 +319,13 @@ def initLocal():
             f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/31284 -d {wb}/models/Lora -o KoreanDollLikeness.safetensors')
     get_ipython().system(
             f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/10290 -d {wb}/models/Lora -o Doggystyle.safetensors')
+    get_ipython().system(
+            f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/62833 -d {wb}/models/Lora -o Detail_Tweaker(细节调整).safetensors')
+    get_ipython().system(
+            f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/16557 -d {wb}/models/Lora -o ShojoVibe少女感.safetensors')
+    get_ipython().system(
+            f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/10290 -d {wb}/models/Lora -o Doggystyle.safetensors')
+
 
 # 运行
 def run(script):
