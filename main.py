@@ -150,7 +150,7 @@ def installAdditional():
             'control_v11p_sd15_lineart_fp16.safetensors',
             'control_v11p_sd15_mlsd_fp16.safetensors',
             'control_v11p_sd15_normalbae_fp16.safetensors',
-            'control_v11p_sd15_openpose_fp16.safetensors',
+            # 'control_v11p_sd15_openpose_fp16.safetensors',
             'control_v11p_sd15_scribble_fp16.safetensors',
             'control_v11p_sd15_seg_fp16.safetensors',
             'control_v11p_sd15_softedge_fp16.safetensors',
@@ -161,6 +161,8 @@ def installAdditional():
     # 模型下载到Colab
     if ControlNet:
         gitDownload(f'https://github.com/Mikubill/sd-{w}-controlnet',f'{wb}/extensions/sd-{w}-controlnet')
+        get_ipython().system(
+            f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15_openpose.pth -d {wb}/extensions/sd-{w}-controlnet/models -o control_v11p_sd15_openpose.pth')
         for v in Cnt_models:
             get_ipython().system(f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/ckpt/ControlNet-v1-1/resolve/main/{v} -d {wb}/extensions/sd-{w}-controlnet/models -o {v}')
         print("启用 ControlNet")
@@ -196,7 +198,7 @@ def installAdditional():
                     f'{wb}/extensions/sd-{w}-segment-anything')
         # 下载segment模型
         get_ipython().system(
-            f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/ybelkada/segment-anything/resolve/main/checkpoints/sam_vit_h_4b8939.pth -d {wb}/extensions/sd-{w}-segment-anything/models/sam/sam_vit_h_4b8939.pth')
+            f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth  -d {wb}/extensions/sd-{w}-segment-anything/models/sam -o sam_vit_h_4b8939.pth')
     else:
         get_ipython().system(f'rm -rf {wb}/extensions/sd-{w}-segment-anything')
         print("segemnt插件不下载")
