@@ -24,7 +24,7 @@ parser.add_argument('--Drive_Map', type=str_to_bool)
 parser.add_argument('--Key_words', type=str_to_bool)
 parser.add_argument('--Segment', type=str_to_bool)
 parser.add_argument('--Couple', type=str_to_bool)
-
+parser.add_argument('--Models',type=str_to_bool)
 # 解析命令行参数
 args = parser.parse_args()
 
@@ -36,6 +36,7 @@ Drive_Map = args.Drive_Map
 Key_words = args.Key_words
 Segment = args.Segment
 Couple = args.Couple
+Models = args.Models
 ################################################################################################################################################
 
 import sys
@@ -297,18 +298,16 @@ def initLocal():
     # 下载主模型
     get_ipython().system(
         f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/ckpt/chilloutmix/resolve/main/chilloutmix_NiPrunedFp32Fix.safetensors -d {wb}/models/Stable-diffusion -o chilloutmix_NiPrunedFp32Fix.safetensors')
-
-    get_ipython().system(
-        f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/AerinK/NotSoXJB-Mix-1/resolve/main/NSX-1A-purned.safetensors -d {wb}/models/Stable-diffusion -o NSX-1A-purned.safetensors')
     get_ipython().system(
         f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/OortOnline/darkSushiMixMix_225D/resolve/main/darkSushiMixMix_225D.safetensors -d {wb}/models/Stable-diffusion -o darkSushiMixMix_225D.safetensors')
-    get_ipython().system(
-        f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/casque/fantexiV09beta_fantexiV09beta/resolve/main/%20fantexiV09beta_fantexiV09beta.safetensors -d {wb}/models/Stable-diffusion -o Fantexi.safetensors')
-    get_ipython().system(
-        f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/hanafuusen2001/Hassaku/resolve/main/hassakuHentaiModel_v12.safetensors -d {wb}/models/Stable-diffusion -o hassaku.safetensors')
+    if Models:
+        get_ipython().system(
+            f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/casque/fantexiV09beta_fantexiV09beta/resolve/main/%20fantexiV09beta_fantexiV09beta.safetensors -d {wb}/models/Stable-diffusion -o Fantexi.safetensors')
+        get_ipython().system(
+            f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/hanafuusen2001/Hassaku/resolve/main/hassakuHentaiModel_v12.safetensors -d {wb}/models/Stable-diffusion -o hassaku.safetensors')
+        get_ipython().system(
+            f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/AerinK/NotSoXJB-Mix-1/resolve/main/NSX-1A-purned.safetensors -d {wb}/models/Stable-diffusion -o NSX-1A-purned.safetensors')
 #lora下载
-    get_ipython().system(
-            f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/129414 -d {wb}/models/Lora -o GirlFriendMix.safetensors')
     get_ipython().system(
             f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/116558 -d {wb}/models/Lora -o JK.safetensors')
     get_ipython().system(
@@ -317,8 +316,6 @@ def initLocal():
             f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/16677 -d {wb}/models/Lora -o cuteGirlMix4_v10.safetensors')
     get_ipython().system(
             f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/31284 -d {wb}/models/Lora -o KoreanDollLikeness.safetensors')
-    get_ipython().system(
-            f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/10290 -d {wb}/models/Lora -o Doggystyle.safetensors')
     get_ipython().system(
             f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/62833 -d {wb}/models/Lora -o Detail_Tweaker(细节调整).safetensors')
     get_ipython().system(
