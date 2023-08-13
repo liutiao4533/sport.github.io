@@ -322,6 +322,10 @@ def initLocal():
             f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/16557 -d {wb}/models/Lora -o ShojoVibe少女感.safetensors')
     get_ipython().system(
             f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/10290 -d {wb}/models/Lora -o Doggystyle.safetensors')
+    get_ipython().system(
+            f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/62833 -d {wb}/models/Lora -o MoreDetail.safetensors')
+    get_ipython().system(
+            f'aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/61391 -d {wb}/models/Lora -o Perfect_pussy.safetensors')
 
 
 # 运行
